@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TemperatureCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,101 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature Calculator" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRj-xg-P6g">
+                                <rect key="frame" x="16" y="20" width="343" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="dax-hL-wRe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHH-nF-bT3">
+                                <rect key="frame" x="16" y="150" width="343" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="4Z4-RJ-lqN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-R7-MMz">
+                                <rect key="frame" x="16" y="191" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Fmk-7H-O48"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="calculateTemp:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="X7b-iF-5iw"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Temp1" translatesAutoresizingMaskIntoConstraints="NO" id="TTI-SV-hoc">
+                                <rect key="frame" x="16" y="229" width="343" height="310"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Celsius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-WE-1fq">
+                                <rect key="frame" x="16" y="547" width="343" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="boc-Sp-qcU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="R1N-Nu-5Jc">
+                                <rect key="frame" x="16" y="608" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="8hh-yO-JnB"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Calculate to C"/>
+                                    <segment title="Calculate to F"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="switchFormat:" destination="BYZ-38-t0r" eventType="valueChanged" id="geo-s1-kfx"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JcS-WE-1fq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="1lY-8I-zRy"/>
+                            <constraint firstItem="uRj-xg-P6g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IPe-TL-rHm"/>
+                            <constraint firstItem="Sgc-R7-MMz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jd6-UC-K8g"/>
+                            <constraint firstItem="R1N-Nu-5Jc" firstAttribute="top" secondItem="JcS-WE-1fq" secondAttribute="bottom" constant="8" id="KDH-CG-cUT"/>
+                            <constraint firstItem="JcS-WE-1fq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Nqg-UI-DkV"/>
+                            <constraint firstItem="uRj-xg-P6g" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PQB-BI-UUw"/>
+                            <constraint firstItem="TTI-SV-hoc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Sw9-jc-0Hq"/>
+                            <constraint firstItem="Sgc-R7-MMz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VPq-gh-SOO"/>
+                            <constraint firstItem="uRj-xg-P6g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="XFd-mo-Yen"/>
+                            <constraint firstItem="TTI-SV-hoc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xzv-mN-mMu"/>
+                            <constraint firstItem="R1N-Nu-5Jc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Yfg-Ji-WV9"/>
+                            <constraint firstItem="R1N-Nu-5Jc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="f2x-ao-5xb"/>
+                            <constraint firstItem="rHH-nF-bT3" firstAttribute="top" secondItem="uRj-xg-P6g" secondAttribute="bottom" constant="21" id="gGT-Vx-rjB"/>
+                            <constraint firstItem="rHH-nF-bT3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hWC-bE-6FO"/>
+                            <constraint firstItem="rHH-nF-bT3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="izA-Qh-FxJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="R1N-Nu-5Jc" secondAttribute="bottom" constant="31" id="k2a-I3-0Ih"/>
+                            <constraint firstItem="TTI-SV-hoc" firstAttribute="top" secondItem="Sgc-R7-MMz" secondAttribute="bottom" constant="8" id="kuK-P8-5qf"/>
+                            <constraint firstItem="JcS-WE-1fq" firstAttribute="top" secondItem="TTI-SV-hoc" secondAttribute="bottom" constant="8" id="mUf-Sr-IcP"/>
+                            <constraint firstItem="Sgc-R7-MMz" firstAttribute="top" secondItem="rHH-nF-bT3" secondAttribute="bottom" constant="8" id="wJt-QO-7NH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterLabel" destination="rHH-nF-bT3" id="THm-8f-bdn"/>
+                        <outlet property="imageView" destination="TTI-SV-hoc" id="Mjh-VM-5nH"/>
+                        <outlet property="outputLabel" destination="JcS-WE-1fq" id="8YR-UJ-dqN"/>
+                        <outlet property="segmentControl" destination="R1N-Nu-5Jc" id="WrE-X8-50I"/>
+                        <outlet property="textField" destination="Sgc-R7-MMz" id="8fm-Af-oSL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Temp1" width="263" height="943"/>
+    </resources>
 </document>
